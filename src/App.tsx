@@ -1,7 +1,8 @@
-import Message from './Message';
+import ListGroup from "./components/ListGroup";
+import { Fragment } from "react";
 
 function App() {
-  return <div><Message></Message></div>;
+  return <div><ListGroup></ListGroup></div>;
   // or return <div><Message /></div>;
 }
 
