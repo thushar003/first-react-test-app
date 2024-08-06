@@ -1,5 +1,5 @@
 function ListGroup() {
-    const items = [
+    let items = [
         'New York',
         'San Francisco',
         'Tokyo',
@@ -7,7 +7,10 @@ function ListGroup() {
         'Paris'
     ];
 
-    items.map(item => <li>{item}</li>);
+    items = [];
+
+    if (items.length === 0)
+      return <><h1>List</h1><p>No item found</p></>;
 
     return (
         <>    
