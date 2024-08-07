@@ -1,8 +1,14 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+// { items: [], heading: string }
+interface Props {
+  items: string[];
+  heading: string;
+  // { item: string } => void
+  onSelectItem: (item: string) => void;
+}
 
+function ListGroup({ items, heading, onSelectItem }: Props) {
   //items = [];
 
   // const message = items.length === 0 ? <p>No item found</p> : null;
@@ -16,21 +22,27 @@ function ListGroup() {
   // But another way to do it is to use the ternary operator to check if the list is empty, and use && (the logical 'and' operator) to check if the list is empty. If it is, No item found is displayed. If the list has items, nothing will be rendered by that line of code.
 
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  
 
   // Event handler function
-  const handleClick = (event: MouseEvent) => console.log(event)
+  const handleClick = (event: MouseEvent) => console.log(event);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
           <li
-            className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             key={item}
-            onClick={() => { setSelectedIndex(index); }}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
           >
             {item}
           </li>
