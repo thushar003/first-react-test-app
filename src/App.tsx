@@ -20,6 +20,7 @@
 
 import React from 'react'
 import Alert from './components/Alert';
+import Button from './components/Button';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
       <Alert>
         Hello <span>World</span>
       </Alert>
+      <Button>Example</Button>
     </div>
   )
 }
