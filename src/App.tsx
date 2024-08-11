@@ -18,19 +18,22 @@
 
 // export default App;
 
-import React from 'react'
-import Alert from './components/Alert';
-import Button from './components/Button';
+import React, { useState } from "react";
+import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 const App = () => {
+  const [alertVisible, setAlertVisibility] = useState(false);
+
   return (
     <div>
-      <Alert>
+      {alertVisible && <Alert onClose={() => setAlertVisibility(false)}>My alert</Alert>}
+      <Alert onClose={() => setAlertVisibility(false)}>
         Hello <span>World</span>
       </Alert>
-      <Button>Example</Button>
+      <Button color="secondary" onClick={() => setAlertVisibility(true)}>Example</Button>
     </div>
-  )
-}
+  );
+};
 
 export default App;
