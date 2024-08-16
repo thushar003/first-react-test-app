@@ -27,11 +27,15 @@ const App = () => {
 
   return (
     <div>
-      {alertVisible && <Alert onClose={() => setAlertVisibility(false)}>My alert</Alert>}
+      {alertVisible && (
+        <Alert onClose={() => setAlertVisibility(false)}>My alert</Alert>
+      )}
       <Alert onClose={() => setAlertVisibility(false)}>
         Hello <span>World</span>
       </Alert>
-      <Button color="secondary" onClick={() => setAlertVisibility(true)}>Example</Button>
+      <Button color="secondary" onClick={() => setAlertVisibility(true)}>
+        Example
+      </Button>
     </div>
   );
 };
